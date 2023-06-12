@@ -5277,7 +5277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceToPlayer: 43
   AutoEscapeRange: 120.7
-  PresidentSpeed: 60
+  PresidentSpeed: 70
 --- !u!195 &902244953
 NavMeshAgent:
   m_ObjectHideFlags: 0
