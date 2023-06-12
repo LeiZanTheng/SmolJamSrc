@@ -20,6 +20,10 @@ public class EnemyBullet : MonoBehaviour
         if(other.CompareTag("Player") || other.CompareTag("President"))
         {
             BulletSrc.PlayOneShot(dedSound);
+            if(other.CompareTag("President"))
+            {
+                other.gameObject.GetComponent<President>().Ded();
+            }
             Destroy(other.gameObject, 0.005f);
             Destroy(gameObject);
         }

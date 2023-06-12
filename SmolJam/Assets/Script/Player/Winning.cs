@@ -33,7 +33,7 @@ public class Winning : MonoBehaviour
         }
     }
     private void Update() {
-        if(!PresidentLiveDectector.presidentIsLive)
+        if(President.IsDead || Citizen.CurrentReputation <= -20f)
         {
             MusicPLAYER.StopPlayingMusic();
             if(allowPlaySound)
@@ -45,7 +45,7 @@ public class Winning : MonoBehaviour
             GameOver.SetActive(true);
             Time.timeScale = 0;
         }
-        if(PresidentLiveDectector.presidentIsLive && !HaveWon)
+        if(!President.IsDead && !HaveWon && !(Citizen.CurrentReputation <= -20f))
         {
             GameOver.SetActive(false);
             Time.timeScale = 1;

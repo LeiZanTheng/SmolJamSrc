@@ -8,6 +8,7 @@ public class Citizen : MonoBehaviour
     Transform CurPatrolPoint;
     [SerializeField]float Reputation = 30f;
     private void Start() {
+        CurrentReputation = 100f;
         CitizenAI = GetComponent<NavMeshAgent>();
         CitizenAI.updateRotation = false;
         CitizenAI.updateUpAxis = false;

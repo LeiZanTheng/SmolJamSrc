@@ -10,7 +10,9 @@ public class President : MonoBehaviour
     [SerializeField]float DistanceToPlayer;
     [SerializeField]float AutoEscapeRange;
     [SerializeField]float PresidentSpeed;
+    public static bool IsDead = false;
     private void Start() {
+        IsDead = false;
         PresidentAI = GetComponent<NavMeshAgent>();
         PresidentAI.updateRotation = false;
         PresidentAI.updateUpAxis = false;
@@ -33,6 +35,10 @@ public class President : MonoBehaviour
         {
             PresidentAI.SetDestination(EscapeCar.position);
         }
+    }
+    public void Ded()
+    {
+        IsDead = true;
     }
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;

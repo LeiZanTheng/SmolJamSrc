@@ -21,6 +21,7 @@ public class NormalEnemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         President = GameObject.FindGameObjectWithTag("President").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = EnemySpeed;
@@ -42,7 +43,7 @@ public class NormalEnemy : MonoBehaviour
         {
             agent.SetDestination(President.position);
         }
-        if(Vector2.Distance(transform.position, President.position) <= DistanceToPresident)
+        if(Vector2.Distance(transform.position, President.position) <= DistanceToPresident || Vector2.Distance(transform.position, player.position) <= DistanceToPresident)
         {
             if(isAssassin)
             {
@@ -71,6 +72,7 @@ public class NormalEnemy : MonoBehaviour
                     }
                     if(affectedObject.CompareTag("President"))
                     {
+                        affectedObject.gameObject.GetComponent<President>().Ded();
                         Destroy(affectedObject.gameObject);
                     }
                     if(affectedObject.CompareTag("Enemy"))
