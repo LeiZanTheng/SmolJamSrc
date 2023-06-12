@@ -22,7 +22,7 @@ public class President : MonoBehaviour
     }
     private void Update() {
         //followPlayer
-        if(Vector2.Distance(transform.position, Player.position) > DistanceToPlayer)
+        if(Vector2.Distance(transform.position, Player.position) > DistanceToPlayer && !(Vector2.Distance(transform.position, EscapeCar.position) <= AutoEscapeRange))
         {
             PresidentAI.SetDestination(Player.position);
         }
